@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:id="@+id/nav_graph"
+	app:startDestination="@id/gardenInfoFragment">
+
+	<fragment
+		android:id="@+id/gardenInfoFragment"
+		android:name="com.example.gardendemo.ui.GardenInfoFragment"
+		tools:layout="@layout/garden_info_fragment"
+		android:label="Garden Info">
+		<action
+			android:id="@+id/action_GardenInfoFragment_to_PlantInfoFragment"
+			app:destination="@id/plantInfoFragment" />
+	</fragment>
+
+	<fragment
+		android:id="@+id/plantInfoFragment"
+		android:name="com.example.gardendemo.ui.PlantInfoFragment"
+		tools:layout="@layout/plant_info_fragment"
+		android:label="Plant Info">
+	</fragment>
+</navigation>
