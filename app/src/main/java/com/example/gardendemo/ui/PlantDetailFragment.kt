@@ -5,21 +5,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.gardendemo.R
+import com.example.gardendemo.network.response.PlantInfo
 import com.example.gardendemo.tools.loadUrl
-import com.example.gardendemo.ui.adapter.PlantInfoAdapter
-import com.example.gardendemo.vm.PlantInfoViewModel
-import kotlinx.android.synthetic.main.plant_info_fragment.*
-import org.koin.androidx.viewmodel.ext.android.viewModel
+import kotlinx.android.synthetic.main.plant_detail_fragment.*
 
 class PlantDetailFragment : Fragment() {
 
-    private var gardenIcon: String? = ""
-    private var gardenContent: String? = ""
-
-    private val plantInfoVM:PlantInfoViewModel by viewModel()
-    private var mAdapter: PlantInfoAdapter? = null
+    private var plantItem:PlantInfo = PlantInfo()
 
     override fun onCreateView(
             inflater: LayoutInflater, container: ViewGroup?,
@@ -33,39 +26,24 @@ class PlantDetailFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         arguments?.let {
-            gardenIcon = it.getString("gardenIcon")
-            gardenContent = it.getString("gardenContent")
+            plantItem = it.getParcelable<PlantInfo>("plantItem")!!
         }
 
-        setObserver()
         initView()
-
-        plantInfoVM.getPlantInfoAPI()
     }
 
     private fun initView(){
-
-        gardenIcon?.let {
-            iv_gardenIconInside.loadUrl(it)
+        plantItem.fPic01URL?.let {
+            iv_plantImage.loadUrl(it)
         }
 
-        gardenContent?.let {
-            tv_gardenInfoInside.text = gardenContent
-        }
-
-        mAdapter = PlantInfoAdapter(requireContext(), object : PlantInfoAdapter.OnAdapterClickListener{
-            override fun OnItemClick(view: View?, position: Int) {
-
-            }
-        })
-
-        rv_plantList.layoutManager = LinearLayoutManager(requireContext())
-        rv_plantList.adapter = mAdapter
+        tv_name.text = plantItem.fNameEn
+        tv_otherName.text = plantItem.fAlsoKnown
+        tv_info.text = plantItem.fBrief
+        tv_identify.text = plantItem.fFeature
+        tv_function.text = plantItem.fFunction
+        tv_lastUpdate.text = getString(R.string.last_update)+plantItem.fUpdate
     }
 
-    private fun setObserver(){
-        plantInfoVM.plantDataSet.observe(viewLifecycleOwner, {
-            mAdapter?.swapDataSet(it)
-        })
-    }
+
 }

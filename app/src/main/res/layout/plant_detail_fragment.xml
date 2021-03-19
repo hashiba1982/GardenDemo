@@ -7,7 +7,7 @@
 	tools:context=".ui.PlantInfoFragment">
 
 	<LinearLayout
-		android:id="@+id/ll_gardenBox"
+		android:id="@+id/ll_plantDetailBox"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:orientation="vertical"
@@ -16,7 +16,7 @@
 		app:layout_constraintEnd_toEndOf="parent">
 
 		<ImageView
-			android:id="@+id/iv_gardenIconInside"
+			android:id="@+id/iv_plantImage"
 			android:layout_width="match_parent"
 			android:layout_height="200dp"
 			android:scaleType="centerCrop"
@@ -25,28 +25,138 @@
 			app:layout_constraintTop_toTopOf="parent" />
 
 		<TextView
-			android:id="@+id/tv_gardenInfoInside"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
-			android:padding="8dp"
+			android:layout_marginTop="8dp"
+			android:layout_marginStart="8dp"
+			android:layout_marginEnd="8dp"
+			android:text="@string/plant_name"
+			style="@style/SD_TEXT_STYLE_14SP"
 			app:layout_constraintEnd_toEndOf="parent"
 			app:layout_constraintStart_toStartOf="parent"
 			app:layout_constraintTop_toTopOf="parent" />
 
-		<View
+		<TextView
+			android:id="@+id/tv_name"
 			android:layout_width="match_parent"
-			android:layout_height="0.3dp"
-			android:background="@color/black"/>
-	</LinearLayout>
+			android:layout_height="wrap_content"
+			android:layout_marginTop="2dp"
+			android:layout_marginStart="8dp"
+			android:layout_marginEnd="8dp"
+			style="@style/SD_TEXT_STYLE_12SP"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toTopOf="parent" />
 
-	<androidx.recyclerview.widget.RecyclerView
-		android:id="@+id/rv_plantList"
-		android:layout_width="0dp"
-		android:layout_height="0dp"
-		android:layout_marginTop="8dp"
-		app:layout_constraintBottom_toBottomOf="parent"
-		app:layout_constraintEnd_toEndOf="parent"
-		app:layout_constraintStart_toStartOf="parent"
-		app:layout_constraintTop_toBottomOf="@+id/ll_gardenBox" />
+		<TextView
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="8dp"
+			android:layout_marginStart="8dp"
+			android:layout_marginEnd="8dp"
+			android:text="@string/other_name"
+			style="@style/SD_TEXT_STYLE_14SP"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toTopOf="parent" />
+
+		<TextView
+			android:id="@+id/tv_otherName"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="2dp"
+			android:layout_marginStart="8dp"
+			android:layout_marginEnd="8dp"
+			style="@style/SD_TEXT_STYLE_12SP"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toTopOf="parent" />
+
+		<TextView
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="8dp"
+			android:layout_marginStart="8dp"
+			android:layout_marginEnd="8dp"
+			android:text="@string/info"
+			style="@style/SD_TEXT_STYLE_14SP"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toTopOf="parent" />
+
+		<TextView
+			android:id="@+id/tv_info"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="2dp"
+			android:layout_marginStart="8dp"
+			android:layout_marginEnd="8dp"
+			style="@style/SD_TEXT_STYLE_12SP"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toTopOf="parent" />
+
+		<TextView
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="8dp"
+			android:layout_marginStart="8dp"
+			android:layout_marginEnd="8dp"
+			android:text="@string/identify"
+			style="@style/SD_TEXT_STYLE_14SP"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toTopOf="parent" />
+
+		<TextView
+			android:id="@+id/tv_identify"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="2dp"
+			android:layout_marginStart="8dp"
+			android:layout_marginEnd="8dp"
+			style="@style/SD_TEXT_STYLE_12SP"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toTopOf="parent" />
+
+		<TextView
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="8dp"
+			android:layout_marginStart="8dp"
+			android:layout_marginEnd="8dp"
+			android:text="@string/function"
+			style="@style/SD_TEXT_STYLE_14SP"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toTopOf="parent" />
+
+		<TextView
+			android:id="@+id/tv_function"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="2dp"
+			android:layout_marginStart="8dp"
+			android:layout_marginEnd="8dp"
+			style="@style/SD_TEXT_STYLE_12SP"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toTopOf="parent" />
+
+		<TextView
+			android:id="@+id/tv_lastUpdate"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="8dp"
+			android:layout_marginStart="8dp"
+			android:layout_marginEnd="8dp"
+			android:layout_marginBottom="8dp"
+			style="@style/SD_TEXT_STYLE_12SP"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toTopOf="parent" />
+
+	</LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

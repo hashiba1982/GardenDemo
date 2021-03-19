@@ -8,4 +8,14 @@
 		<item name="android:windowBackground">@color/colorWhite</item>
 	</style>
 
+
+	<style name="SD_TEXT_STYLE_14SP">
+		<item name="android:textSize">14sp</item>
+		<item name="android:textColor">@color/black</item>
+	</style>
+
+	<style name="SD_TEXT_STYLE_12SP">
+		<item name="android:textSize">12sp</item>
+		<item name="android:textColor">@color/black</item>
+	</style>
 </resources>

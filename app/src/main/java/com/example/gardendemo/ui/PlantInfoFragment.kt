@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.gardendemo.R
 import com.example.gardendemo.tools.loadUrl
@@ -55,7 +56,9 @@ class PlantInfoFragment : Fragment() {
 
         mAdapter = PlantInfoAdapter(requireContext(), object : PlantInfoAdapter.OnAdapterClickListener{
             override fun OnItemClick(view: View?, position: Int) {
-
+                val bundle = Bundle()
+                bundle.putParcelable("plantItem", plantInfoVM.plantDataSet.value?.get(position))
+                findNavController().navigate(R.id.action_plantInfoFragment_to_plantDetail, bundle)
             }
         })
 

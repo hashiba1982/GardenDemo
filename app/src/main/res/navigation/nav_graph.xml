@@ -20,5 +20,15 @@
 		android:name="com.example.gardendemo.ui.PlantInfoFragment"
 		tools:layout="@layout/plant_info_fragment"
 		android:label="Plant Info">
+		<action
+			android:id="@+id/action_plantInfoFragment_to_plantDetail"
+			app:destination="@id/plantDetail" />
+	</fragment>
+
+	<fragment
+		android:id="@+id/plantDetail"
+		android:name="com.example.gardendemo.ui.PlantDetailFragment"
+		tools:layout="@layout/plant_detail_fragment"
+		android:label="Plant Detail">
 	</fragment>
 </navigation>
