@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.gardendemo.R
+import com.example.gardendemo.moduls.AppParam
 import com.example.gardendemo.tools.loadUrl
 import com.example.gardendemo.ui.adapter.PlantInfoAdapter
 import com.example.gardendemo.vm.PlantInfoViewModel
@@ -18,6 +19,7 @@ class PlantInfoFragment : Fragment() {
 
     private var gardenIcon: String? = ""
     private var gardenContent: String? = ""
+    private var gardenTitle: String? = ""
 
     private val plantInfoVM:PlantInfoViewModel by viewModel()
     private var mAdapter: PlantInfoAdapter? = null
@@ -34,8 +36,9 @@ class PlantInfoFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         arguments?.let {
-            gardenIcon = it.getString("gardenIcon")
-            gardenContent = it.getString("gardenContent")
+            gardenIcon = it.getString(AppParam.GARDEN_ICON)
+            gardenContent = it.getString(AppParam.GARDEN_CONTENT)
+            gardenTitle = it.getString(AppParam.GARDEN_TITLE)
         }
 
         setObserver()
@@ -54,10 +57,14 @@ class PlantInfoFragment : Fragment() {
             tv_gardenInfoInside.text = gardenContent
         }
 
+        gardenTitle?.let {
+            tv_gardenTitleInside.text = it
+        }
+
         mAdapter = PlantInfoAdapter(requireContext(), object : PlantInfoAdapter.OnAdapterClickListener{
             override fun OnItemClick(view: View?, position: Int) {
                 val bundle = Bundle()
-                bundle.putParcelable("plantItem", plantInfoVM.plantDataSet.value?.get(position))
+                bundle.putParcelable(AppParam.PLANT_ITEM, plantInfoVM.plantDataSet.value?.get(position))
                 findNavController().navigate(R.id.action_plantInfoFragment_to_plantDetail, bundle)
             }
         })

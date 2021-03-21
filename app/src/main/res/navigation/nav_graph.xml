@@ -8,8 +8,7 @@
 	<fragment
 		android:id="@+id/gardenInfoFragment"
 		android:name="com.example.gardendemo.ui.GardenInfoFragment"
-		tools:layout="@layout/garden_info_fragment"
-		android:label="Garden Info">
+		tools:layout="@layout/garden_info_fragment">
 		<action
 			android:id="@+id/action_GardenInfoFragment_to_PlantInfoFragment"
 			app:destination="@id/plantInfoFragment" />
@@ -18,8 +17,7 @@
 	<fragment
 		android:id="@+id/plantInfoFragment"
 		android:name="com.example.gardendemo.ui.PlantInfoFragment"
-		tools:layout="@layout/plant_info_fragment"
-		android:label="Plant Info">
+		tools:layout="@layout/plant_info_fragment">
 		<action
 			android:id="@+id/action_plantInfoFragment_to_plantDetail"
 			app:destination="@id/plantDetail" />
@@ -28,7 +26,6 @@
 	<fragment
 		android:id="@+id/plantDetail"
 		android:name="com.example.gardendemo.ui.PlantDetailFragment"
-		tools:layout="@layout/plant_detail_fragment"
-		android:label="Plant Detail">
+		tools:layout="@layout/plant_detail_fragment">
 	</fragment>
 </navigation>

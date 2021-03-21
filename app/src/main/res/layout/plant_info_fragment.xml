@@ -10,7 +10,7 @@
 	<com.google.android.material.appbar.AppBarLayout
 		android:id="@+id/myAppBar"
 		android:layout_width="match_parent"
-		android:layout_height="200dp"
+		android:layout_height="wrap_content"
 		android:fitsSystemWindows="true">
 
 		<com.google.android.material.appbar.CollapsingToolbarLayout
@@ -23,7 +23,7 @@
 			app:expandedTitleMarginStart="10dp"
 			app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
-			<LinearLayout
+			<androidx.constraintlayout.widget.ConstraintLayout
 				android:id="@+id/ll_gardenBox"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
@@ -34,27 +34,47 @@
 
 				<ImageView
 					android:id="@+id/iv_gardenIconInside"
-					android:layout_width="match_parent"
+					android:layout_width="0dp"
 					android:layout_height="200dp"
 					android:scaleType="centerCrop"
 					app:layout_constraintEnd_toEndOf="parent"
 					app:layout_constraintStart_toStartOf="parent"
 					app:layout_constraintTop_toTopOf="parent" />
 
+				<FrameLayout
+					android:id="@+id/blackAlphaBG"
+					android:layout_width="0dp"
+					android:layout_height="45dp"
+					android:background="@color/black"
+					android:alpha="0.5"
+					app:layout_constraintBottom_toBottomOf="@id/iv_gardenIconInside"
+					app:layout_constraintStart_toStartOf="parent"
+					app:layout_constraintEnd_toEndOf="parent"/>
+
+				<TextView
+					android:id="@+id/tv_gardenTitleInside"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_marginEnd="16dp"
+					android:textColor="@color/colorWhite"
+					android:textSize="16sp"
+					app:layout_constraintTop_toTopOf="@id/blackAlphaBG"
+					app:layout_constraintBottom_toBottomOf="@id/blackAlphaBG"
+					app:layout_constraintEnd_toEndOf="@id/blackAlphaBG"/>
+
 				<TextView
 					android:id="@+id/tv_gardenInfoInside"
-					android:layout_width="match_parent"
+					android:layout_width="0dp"
 					android:layout_height="wrap_content"
 					android:padding="8dp"
+					android:textColor="@color/colorWhite"
+					android:textSize="12sp"
 					app:layout_constraintEnd_toEndOf="parent"
 					app:layout_constraintStart_toStartOf="parent"
-					app:layout_constraintTop_toTopOf="parent" />
+					app:layout_constraintTop_toBottomOf="@id/iv_gardenIconInside"/>
 
-				<View
-					android:layout_width="match_parent"
-					android:layout_height="0.3dp"
-					android:background="@color/black"/>
-			</LinearLayout>
+
+			</androidx.constraintlayout.widget.ConstraintLayout>
 		</com.google.android.material.appbar.CollapsingToolbarLayout>
 	</com.google.android.material.appbar.AppBarLayout>
 

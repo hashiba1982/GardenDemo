@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.gardendemo.R
+import com.example.gardendemo.moduls.AppParam
 import com.example.gardendemo.network.response.PlantInfo
 import com.example.gardendemo.tools.loadUrl
 import kotlinx.android.synthetic.main.plant_detail_fragment.*
@@ -26,7 +27,7 @@ class PlantDetailFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         arguments?.let {
-            plantItem = it.getParcelable<PlantInfo>("plantItem")!!
+            plantItem = it.getParcelable<PlantInfo>(AppParam.PLANT_ITEM)!!
         }
 
         initView()
